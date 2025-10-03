@@ -21,30 +21,30 @@ try {
         exit;
     }
 
-    // Database connection with error handling
+    
     try {
         include '../database.php';
         
-        // Check if connection was established
+        
         if (!isset($pdo)) {
             throw new Exception("PDO connection not established");
         }
         
-        // Test the connection
+        
         $pdo->query("SELECT 1");
         error_log("Database connection successful");
         
     } catch (Exception $dbError) {
         error_log("Database connection failed: " . $dbError->getMessage());
         
-        // Create a direct connection as fallback
+        
         error_log("Attempting direct database connection...");
         $pdo = new PDO("mysql:host=localhost;dbname=ethiovote", "root", "ZAde3518.");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         error_log("Direct database connection successful");
     }
 
-    // Call stored procedure
+    
     $pdo->exec("SET @otp = ''");
     $pdo->exec("SET @result = 0");
 
@@ -69,11 +69,11 @@ try {
         $otp = $out['otp']; 
         error_log("OTP generated: " . $otp);
         
-        // Store OTP in session for verification later
+        
         $_SESSION['otp'] = $otp;
         $_SESSION['otp_time'] = time();
         
-        // EMAIL SENDING PART ADDED HERE
+        
         $apiKey = "89BEEDCDB918A388BDDE702B1ABA8493F1199D291EEB4B30AE54AC9E37930661440C4F61025C1FF11F5B2D1A841960E2";
         
         $postData = [
@@ -147,7 +147,7 @@ try {
             }
         }
         
-        // Fallback to PHP mail() if Elastic Email fails
+        
         if (!$emailSent) {
             error_log("Attempting fallback with PHP mail() to: " . $email);
             

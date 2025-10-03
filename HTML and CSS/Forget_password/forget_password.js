@@ -2,7 +2,7 @@ const inputs = document.querySelectorAll('.otp-input');
 
 inputs.forEach((input, index) => {
 
-  // Validation: highlight empty input
+  
   input.addEventListener('input', function() {
     if (this.value.trim() === "") {
       this.style.border = "2px solid red";
@@ -14,7 +14,7 @@ inputs.forEach((input, index) => {
     }
   });
 
-  // Keyboard navigation
+  
   input.addEventListener('keydown', function(e) {
     if (e.key === "ArrowLeft" && index > 0) {
       inputs[index - 1].focus();
@@ -25,7 +25,7 @@ inputs.forEach((input, index) => {
     }
   });
 });
-//timer
+
    let timerInterval;
   function showPanel(id) {
     document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
@@ -53,7 +53,7 @@ inputs.forEach((input, index) => {
   }
  
 
-  // Add this script to your page
+  
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - looking for OTP link...');
     
@@ -80,7 +80,7 @@ async function sendOTP(event) {
     const sendLink = document.getElementById('sendOTPLink');
     const originalText = sendLink.innerHTML;
     
-    // Show loading state
+    
     sendLink.innerHTML = 'Sending OTP...';
     sendLink.style.pointerEvents = 'none';
     sendLink.style.opacity = '0.6';
@@ -116,14 +116,14 @@ async function sendOTP(event) {
 
         } else {
             alert('❌ ' + result.message);
-            // Reset link on error
+          
             resetOTPLink(sendLink, originalText);
         }
 
     } catch (error) {
         console.error('Error:', error);
         alert('❌ Failed to send OTP: ' + error.message);
-        // Reset link on error
+        
         resetOTPLink(sendLink, originalText);
     }
 }

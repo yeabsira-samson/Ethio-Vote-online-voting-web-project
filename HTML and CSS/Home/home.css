@@ -283,8 +283,8 @@ background-color: #f2f2f2;
      box-shadow 0.3s ease; 
 }
 #result:hover{
-    transform: translateY(-10px); /* move up 10px */
-  box-shadow: 0 8px 16px rgba(1, 36, 5, 0.2); /* optional effect */
+    transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(1, 36, 5, 0.2); 
   background-color: rgb(232, 243, 232);
 }
 .overview{
@@ -292,17 +292,17 @@ background-color: #f2f2f2;
      box-shadow 0.3s ease; 
 }
 .overview:hover{
-    transform: translateY(-10px); /* move up 10px */
-  box-shadow: 0 8px 16px rgba(1, 36, 5, 0.2); /* optional effect */
+    transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(1, 36, 5, 0.2); 
   background-color: rgb(232, 243, 232);
 }
 .instruction{
     transition: transform 0.3s ease,
-     box-shadow 0.3s ease; /* smooth movement */
+     box-shadow 0.3s ease; 
 }
 .instruction:hover{
-    transform: translateY(-10px); /* move up 10px */
-  box-shadow: 0 8px 16px rgba(1, 36, 5, 0.2); /* optional effect */
+    transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(1, 36, 5, 0.2); 
   background-color: rgb(232, 243, 232);
 }
 .instruction a{

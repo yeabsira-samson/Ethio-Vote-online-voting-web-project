@@ -21,7 +21,7 @@ try {
 
     $otp_escaped = $conn->real_escape_string($otp);
 
-    // **PRE-VALIDATION CHECK**
+    
     error_log("--- PRE-VALIDATION CHECK ---");
     $pre_check_sql = "SELECT COUNT(*) as otp_count 
                       FROM OTP_verification 
@@ -35,7 +35,7 @@ try {
     
     error_log("Pre-validation found $valid_otp_count valid OTP records");
 
-    // **If pre-validation fails, reject immediately**
+    
     if ($valid_otp_count == 0) {
         error_log("PRE-VALIDATION FAILED: No valid OTP found - rejecting immediately");
         $response = ["status" => "failure", "message" => "OTP is invalid or expired"];
@@ -45,13 +45,13 @@ try {
 
     error_log("PRE-VALIDATION PASSED: Proceeding with stored procedure");
 
-    // Call stored procedure (only if pre-validation passed)
+    
     error_log("--- CALLING STORED PROCEDURE ---");
     if (!$conn->query("CALL Verify_otp('$otp_escaped', @otp_status)")) {
         throw new Exception("Procedure call failed: " . $conn->error);
     }
 
-    // Clear result sets
+    
     while ($conn->more_results()) {
         $conn->next_result();
         if ($result = $conn->store_result()) {
@@ -59,7 +59,7 @@ try {
         }
     }
 
-    // Get the result from procedure
+    
     $result = $conn->query("SELECT @otp_status AS otp_status");
     if ($result && $row = $result->fetch_assoc()) {
         $message = $row['otp_status'];
@@ -68,11 +68,11 @@ try {
         $message = '';
     }
 
-    // **Use our pre-validation result (status remains unchanged)**
+    
     if ($valid_otp_count > 0) {
         $response = ["status" => "success", "message" => "Verified"];
         error_log("FINAL: VERIFIED (Based on pre-validation)");
-        // Status remains 'not expired' - no update query
+    
     } else {
         $response = ["status" => "failure", "message" => "OTP is invalid or expired"];
         error_log("FINAL: REJECTED (Based on pre-validation)");

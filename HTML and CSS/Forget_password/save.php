@@ -3,7 +3,7 @@ session_start();
 header('Content-Type: application/json');
 include '../database.php';
 
-// Get posted values
+
 $password = $_POST['password'] ?? '';
 $email = $_SESSION['Rest_user_email'] ?? ''; 
 
@@ -12,10 +12,10 @@ if (empty($password) || empty($email)) {
     exit;
 }
 
-// Hash the password before storing
+
 $hashed_pass = password_hash($password, PASSWORD_BCRYPT);
 
-// Call stored procedure
+
 $sql = "CALL Update_password(?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $email, $hashed_pass);
