@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="googlebot" content=”translate” />
+    <link rel="icon" href="/Image and video/Form.ico" type="image/x-icon">
+    <title>Registration</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <main class="container">
+    <section class="image">
+      <img src="Ethiopia (Addis Ababa) (2).jpg" alt="Ethiopian flag">
+    </section>
+
+    <section class="forms">
+      <form id="registrationForm">
+        <fieldset>
+          <legend>Registration</legend>
+
+          <div class="div1">
+            <label for="first_name" class="lab1">First Name</label>
+            <input type="text"  id="first_name" name="first_name" class="first_name" size="25" required>
+          </div>
+
+          <div class="div2">
+             <label for="middle_name" class="lab1">Middle Name</label>
+            <input type="text"   id="middle_name" name="middle_name" class="middle_name" size="22" required>
+            
+          </div>
+
+          <div class="div3">
+            <label for="phone">Phone Number</label>
+            <input type="tel"  id="phone" name="phone" class="phone">
+          </div>
+
+          <div class="div4">
+             <label for="email">Email</label>
+             <input type="email" class="email" id="email" size="30" required>
+          </div>
+             
+          <div class="div5">
+            <label for="gender">Gender</label>
+            <input type="radio" class="gender" name="gender" id="gender">
+            <label for="male"> Male</label>
+            <input type="radio" class="gender" name="gender" id="gender" >
+            <label for="female">Female</label>
+          </div>
+      
+           <div class="div6">
+             <label for="fin">FIN</label>
+             <input type="text" class="fin" name="fin" id="fin" required>
+          </div>
+
+          <div class="div7">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="password"required>
+          </div>
+
+         <div class="div8">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="confirm_password"required>
+          </div>
+          
+          <div class="div9">
+               <input type="submit" class="btn" value="Submit">
+          </div>
+        </fieldset>
+      </form>
+
+  </main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script loaded');
+
+    const form = document.getElementById('registrationForm');
+    if (!form) {
+        console.error('Form with ID "registrationForm" not found');
+        alert('Error: Registration form not found.');
+        return;
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+
+        
+        const firstNameInput = document.getElementById('first_name');
+        const middleNameInput = document.getElementById('middle_name');
+        const phoneInput = document.getElementById('phone');
+        const genderInput = document.getElementById('gender');
+        const finInput = document.getElementById('fin');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm_password');
+
+        if (!firstNameInput) {
+            console.error('Element with ID "first_name" not found');
+            alert('Error: First name field not found.');
+            return;
+        }
+        if (!middleNameInput) {
+            console.error('Element with ID "middle_name" not found');
+            alert('Error: Middle name field not found.');
+            return;
+        }
+        if (!phoneInput) {
+            console.error('Element with ID "phone" not found');
+            alert('Error: Phone field not found.');
+            return;
+        }
+        if (!genderInput) {
+            console.error('Element with ID "gender" not found');
+            alert('Error: Gender field not found.');
+            return;
+        }
+        if (!finInput) {
+            console.error('Element with ID "fin" not found');
+            alert('Error: FIN field not found.');
+            return;
+        }
+        if (!passwordInput) {
+            console.error('Element with ID "password" not found');
+            alert('Error: Password field not found.');
+            return;
+        }
+        if (!confirmPasswordInput) {
+            console.error('Element with ID "confirm_password" not found');
+            alert('Error: Confirm password field not found.');
+            return;
+        }
+
+        const firstName = firstNameInput.value.trim();
+        const middleName = middleNameInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const gender = genderInput.value;
+        const fin = finInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+        
+        if (!firstName || !middleName || !phone || !gender || !fin || !password || !confirmPassword) {
+            console.log('Validation failed: Empty fields');
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            console.log('Validation failed: Passwords do not match');
+            alert('Password and Confirm Password do not match.');
+            return;
+        }
+        const formData = new FormData();
+        formData.append('first_name', firstName);
+        formData.append('middle_name', middleName);
+        formData.append('phone', phone);
+        formData.append('gender', gender);
+        formData.append('fin', fin);
+        formData.append('password', password);
+        formData.append('confirm_password', confirmPassword);
+
+        console.log('Sending AJAX with FIN:', fin, 'Phone:', phone);
+
+        
+        fetch('http://localhost:8000/Registration/registration.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('AJAX response:', data);
+
+            alert(data.message);
+
+            if (data.success) {
+                console.log('Registration successful:', data.message);
+                form.reset();
+            } else {
+                console.log('Registration failed:', data.message);
+
+                
+                if (data.message && data.message.toLowerCase().includes("already")) {
+                    window.location.href = "http://localhost:8000/Login/login.html"; 
+                }
+            }
+        })
+        .catch(error => {
+            console.error('AJAX error:', error.message);
+            alert('Error connecting to server: ' + error.message);
+        });
+    });
+});
+</script>
+
+</body>
+</html>

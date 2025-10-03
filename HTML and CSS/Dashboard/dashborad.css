@@ -1,0 +1,262 @@
+*{
+    background-color:#C7C7C7;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+    margin-top: 0;
+   
+}
+.container{
+    display: grid;
+    gap:25px;
+    align-content: baseline;
+    justify-content: center;
+    grid-template-areas: 'nav nav nav nav '
+                         'can1 can2 can3 can4'
+                         'can1 can2 can3 can4'
+                         'feedback feedback feedback feedback'
+                         'copyright copyright copyright copyright';
+    grid-template-rows: auto auto auto auto auto;
+
+}
+.navigation img{
+    width:150px;
+    height: 25px;
+
+}
+ .navigation {
+    background-color: #1F6239;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+    grid-area: nav;
+}
+
+.navigation img {
+    height: 50px;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    margin-left: 50px;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: flex-start;
+    gap: 15px;
+    background-color: transparent;
+}
+
+.navigation ul li {
+    position: relative;
+    background-color: transparent;
+    color: aliceblue;
+    justify-content: space-around;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    background-color: transparent;
+    padding: 10px;
+    display: block;
+    color: aliceblue;
+ 
+}
+.navigation ul li a:hover{
+    color: red;
+}
+
+.account-menu {
+    margin-top: 8px ;
+    margin-left: 740px;
+    cursor: pointer;
+}
+
+.account-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-menu .dropdown li a {
+    padding: 10px 15px;
+    display: block;
+    color: black;
+    white-space: nowrap;
+}
+
+.account-menu:hover .dropdown {
+    display: block;
+    background-color:whitesmoke;
+}
+.image{
+    margin-left: 35px;
+    width: auto;
+}
+.can1{
+background-color: aliceblue;
+ border: 1px solid black;
+ border-radius: 15px;
+ padding: 5px;
+ margin-left: 15px;
+ grid-area: can1;
+}
+.can2{
+background-color: aliceblue;
+ border: 1px solid black;
+  border-radius: 15px;
+ padding: 5px;
+ grid-area: can2;
+}
+.can3{
+background-color: aliceblue;
+ border: 1px solid black;
+  border-radius: 15px;
+ padding :5px;
+ grid-area: can3;
+ 
+}
+.can4{
+background-color: aliceblue;
+ border: 1px solid black;
+  border-radius: 15px;
+ padding: 5px;
+ grid-area: can4;
+ margin-right: 15px;
+
+}
+button{
+    background-color: aquamarine;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 100px;
+}
+.feedback{
+    grid-area: feedback;
+    margin-left: 25px;
+    margin-top: 45px;
+}
+#feedback{
+    font-size: 20px;
+}
+.feedback label{
+    font-size: 25px;
+    font-style:oblique;
+    font-weight: bolder;
+}
+#feedback{
+    background-color: aliceblue;
+}
+p,h1,h2,strong,ul,li,img{
+    background-color: transparent;
+}
+
+img{
+    width:150px ;
+    height:150px ;
+}
+button:hover{
+    background-color:lime;
+}
+#submit{
+    background-color: aquamarine;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    font-size: 20px;
+}
+#submit:hover{
+    background-color:lime;
+}
+.copyright{
+  grid-area: copyright;
+  margin-bottom: -100px;
+
+}
+.copyright img{
+    width: 20px;
+    height: 20px;
+}
+
+.copyright footer{
+    background-color: black;
+    display:block;
+   margin-top: 10px;
+   padding: 50px;
+
+}
+
+.copyright li{
+    color:aliceblue;
+    background-color: transparent;
+    bottom: 0;
+    padding-left: 150px;
+    padding-right: 100px;
+    line-height: 35px;
+    float: left;
+    list-style: none;
+}
+.copyright li a{
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+   
+}
+.copyright li a:hover{
+ color:darkblue
+}
+i{
+    background-color: transparent;
+}
+footer ul {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+    display: flex;     
+    flex-direction: row; 
+    justify-content: space-around;
+    background-color: transparent;  
+    align-items: center; 
+     
+}
+
+footer ul li {
+    display: flex;      
+    align-items: center;
+    gap: 8px;   
+    background-color: transparent;   
+    
+}
+
+
+.copyright {
+  background-color: #1F6239;
+  color: white;
+  margin-top: 20px;
+  padding-top: 5px;
+  
+}
+
+.copyright footer,
+.copyright ul,
+.copyright li {
+  background-color: transparent; 
+  color: white;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+  
+}
+a:hover{
+    color: red;
+}

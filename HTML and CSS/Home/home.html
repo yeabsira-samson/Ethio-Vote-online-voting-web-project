@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="googlebot" content=”translate” />
+    <link rel="icon" href="/Image and video/Elections.ico" type="image/x-icon">
+    <title>EthioVote</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <section class="vid">
+            <video src="Untitled ‑ Made with FlexClip.mp4" alt="Welcome to Ethiopia " autoplay loop muted></video>
+        </section>
+        <section class="navigation">
+    <img src="Rectangle 2.png" alt="EthioVote logo">
+    <ul>
+        <li><a href="http://localhost:8000/Home/home.html" target="_self">Home</a></li>
+        <li><a href="http://localhost:8000/Registration/registration.html" target="_blank">Registration</a></li>
+        <li><a href="#"id="enterSite" target="_self">Dashboard</a></li>
+        <li class="account-menu">
+            ☰
+            <ul class="dropdown">
+                <li><a href="http://localhost:8000/Login/login.html" target="_blank">Login</a></li>
+                <li><a href="#" id="logoutLink" target="_blank">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+    
+        <section class="main_part">
+              <main>
+                <section class="overview">
+                 <h1>About the election</h1><br><br><br>
+                 <p>
+                    EthioVote is a secure and user-friendly online voting platform designed to 
+                    modernize and simplify the election process. 
+                    It allows eligible citizens to register, log in, and cast their votes digitally from anywhere,
+                     ensuring transparency, fairness, and ease of access. The system begins with a simple registration 
+                     process where users provide their personal information and receive a unique Voter ID. 
+                     This ID, along with a password, is used to log in to the voter’s personal dashboard. 
+                     Once logged in, voters can view a list of political parties along with their descriptions, 
+                     select their preferred party using a radio button, and submit their vote. 
+                 </p><br>
+                 <p>
+                    To maintain election
+                      integrity, each user is allowed to vote only once, and once a vote is submitted, 
+                      it cannot be changed. In case a voter forgets their password, the system offers a
+                       secure recovery process: the user can request a password reset, receive a One-Time
+                        Password (OTP) via email, and then enter a new password after verification.
+                         Additionally, after voting, users can submit feedback through the platform.
+                          EthioVote emphasizes both security and convenience, making the election process more
+                           efficient, accessible, and trustworthy for everyone.
+                 </p>
+                </section>
+                <section class="instruction">
+                    <h1>Instruction</h1><br><br>
+                   <a href="#" onclick="showpanel('panel1',event)" target="_self">How to register ?</a>
+                   <a href="#" onclick="showpanel('panel2',event)" target="_self">How to login ?</a>
+                    <a href="#" onclick="showpanel('panel3',event)" target="_self">Forgot Password ?</a>
+                    <a href="#" onclick="showpanel('panel4',event)" target="_self">How to vote ?</a>
+                       <br><br>
+                    <section id="panel1" class="panel">
+                    <h2>1. How to register</h2><br>
+                    <p>
+                        To register and become a voter in the EthioVote system:
+                        <dl>
+                            <dt><b>Fill Out the Registration Form:</b></dt>
+                            <dd>Provide your personal information, including your full name,
+                       email address, phone number, and any other required details.</dd>
+                       <dt><b>Submit the Form:</b></dt>
+                       <dd>Once submitted, your information will be securely stored in our system.</dd>
+                       <dt><b>Receive Your Voter ID:</b></dt>
+                       <dd>After successful registration, you will be assigned a unique Voter ID. Keep this Voter ID safe 
+                           it will be used to log in and cast your vote.</dd>
+                        </dl>
+                    </p>
+                    </section>
+                    <section id="panel2"class="panel">
+                                <h2>2. How to login</h2><br>
+                    <p>
+                        To access your voting dashboard:
+                    <ol>
+                        <li>Enter your Voter ID and Password on the login page.</li>
+                        <li>Click the Login button to continue.</li>
+                         <li>If your credentials are correct, you will be redirected to your dashboard.</li>
+                  </ol>
+                    </p>
+                    </section>
+                    <section id="panel3"class="panel">
+                           <h2>3. Forgot Password</h2><br>
+                    <p>
+                        If you’ve forgotten your password, follow these steps to reset it:
+                        <ol>
+                        <li>Click on the "Forget Password" on the login page.</li>
+                        <li>You will be prompted to enter your registered email address.</li>
+                        <li>An OTP (One-Time Password) will be sent to your email.
+                            <br><br>
+                            <strong><mark>Important:</mark> Check your spam.</strong>
+                        </li><br>
+                        <li>Enter the OTP within the given time limit.</li>
+                        <li>Once verified, you will be asked to enter a new password and confirm it.</li>
+                        <li>After saving the new password, you can log in using your Voter ID and the new password.</li>
+                    </ol>
+                    </p>
+                    </section>
+                    <section id="panel4" class="panel">
+                           <h2>4. How to vote</h2><br>
+                    <p>
+                        After logging in, follow these steps to cast your vote:
+                        <ol>
+                            <li>You will see a list of political parties with their descriptions.</li>
+                            <li>Select the party you support by clicking the button.</li>
+                            <li>If you have any comments or suggestions, you can also leave feedback on the dashboard after voting.</li>
+                        </ol><br>
+                         <strong><mark>Important:</mark>
+                            Voting is currently unavailable.
+                             This may be because the election has not started or has already ended.
+                             For the latest updates, please check the official news or announcements.
+                        </strong><br>
+                        <strong><mark>Important:</mark> You are allowed to vote only once. Once you submit your vote, you cannot change or vote again.</strong>
+                    </p>
+                    </section>
+
+                </section>
+               <button id="toggleBtn">❮</button>
+               <section class="info">
+               <aside id="result">
+                <h1 id="res">Result</h1>
+                 <p id="voteMsg"></p>
+                </aside>
+               </section>
+           </section>
+
+              </main>
+        </section>
+      
+<section class="copyright">
+  <footer>
+    <ul>
+      <li>&copy; 2025 EthioVote</li>
+      <li>
+        <i class="fas fa-landmark"></i>
+        2025 National Election Board of Ethiopia
+      </li>
+      <li>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:Voterinfo@ehtiovote.et">Voterinfo@ehtiovote.et</a>
+      </li>
+      <li>
+        <i class="fas fa-phone"></i>
+        <a href="tel:6890">6890</a>
+      </li>
+    </ul>
+  </footer>
+</section>
+<!-- to display result -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+const btn = document.getElementById("toggleBtn"); 
+let resultsLoaded = false;
+
+function checkVotingTime() {
+  const now = new Date();
+
+  const startTime = new Date();
+  startTime.setHours(9, 22, 0, 0);  
+
+  const endTime = new Date();
+  endTime.setHours(9, 45, 0, 0);  
+
+  if (now >= startTime && now <= endTime) {
+    btn.disabled = false;
+    let msg = document.getElementById("voteMsg");
+    if (!msg) {
+        msg = document.createElement("p");
+        msg.id = "voteMsg";
+        document.body.appendChild(msg); 
+    }
+    msg.textContent = "Voting is still continuing, please wait...";
+    msg.append= now;
+  } else if (now > endTime) {
+    btn.disabled = false; 
+    if (!resultsLoaded) {
+      loadResults();
+      resultsLoaded = true; 
+    }
+  } else {
+    btn.disabled = true;
+  }
+}
+function loadResults() {
+  $.ajax({
+    url: 'result.php',
+    type: 'GET',
+    success: function(data) {
+      $('#result').html(data).addClass('active');
+    },
+    error: function(xhr, status, error) {
+      $('#result').html('<p>Error loading data: ' + error + '</p>').addClass('active');
+    }
+  });
+}
+setInterval(checkVotingTime, 5000);
+checkVotingTime();
+</script>
+
+    </div>
+    <!-- logout -->
+    <script>
+document.getElementById('logoutLink').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  fetch('http://localhost:8000/logout.php', {
+    method: 'POST',
+    credentials: 'include'
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert(data.message); 
+    if (data.success && data.redirect) {
+      window.location.href = data.redirect;
+    }
+  })
+  .catch(err => {
+    alert('Logout failed: ' + err.message);
+    console.error('Fetch error:', err);
+  });
+});
+</script>
+<!-- Dashboard -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const enterBtn = document.getElementById('enterSite');
+    if (!enterBtn) return;
+
+    enterBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        fetch('http://localhost:8000/Home/dashboard.php', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server responded with status ${response.status}`);
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            if (!data || typeof data !== 'object' || !data.status) {
+                throw new Error('Malformed JSON response');
+            }
+
+            alert(data.message || 'Status received');
+
+            if (data.status === 'loggedin') {
+                window.location.href = 'http://localhost:8000/Dashboard/dashboard.html';
+            } else {
+                window.location.href = 'http://localhost:8000/Login/login.html';
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error.message);
+            alert(error.message || 'Server error');
+            window.location.href = 'http://localhost:8000/Login/login.html';
+        });
+    });
+});
+</script>
+</body>
+</html>
+<script src="home.js" ></script>

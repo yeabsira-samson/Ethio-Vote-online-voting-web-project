@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="googlebot" content=”translate” />
+    <link rel="icon" href="/Image and video/Elections.ico" type="image/x-icon">
+    <link rel="stylesheet" href="dashborad.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <section class="navigation">
+    <img src="Rectangle 2.png" alt="EthioVote logo">
+    <ul>
+        <li><a href="http://localhost:8000/Home/home.html" target="_self">Home</a></li>
+        <li><a href="http://localhost:8000/Registration/Registration.html" target="_blank">Registration</a></li>
+        <li><a href="http://localhost:8000/Dashboard/dashboard.html" target="_self">Dashboard</a></li>
+        <li class="account-menu">
+            ☰
+            <ul class="dropdown">
+                <li><a href="http://localhost:8000/Login/login.html" target="_blank">Login</a></li>
+                <li><a href="#" id="logoutLink" target="_blank">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</section><br>
+        
+            <form class="can1" class="can">
+                <h1> Unity Progress Party</h1>
+            <img src="am.jpg" alt="Amira Bekele" class="image">
+            <h2>Amira Bekele</h2>
+            <p>An economist with 15 years of experience in public finance reform, 
+                known for fighting corruption and promoting responsible spending. <br> <br>
+                If Elected:
+                <ul>
+                    <li>Establish a strong, independent anti-corruption commission.</li>
+                    <li>Increase education funding by 20% in five years.</li>
+                    <li>Launch small-business grants to create local jobs.</li>
+                </ul> <br><br>
+                <strong>Slogan: “Clean Hands, Bright Future.”</strong>
+            </p><br><br>
+            <button type="submit" name="id" value="1" class="voteBtn">Vote</button>
+            </form>
+
+            <form  class="can2" class="can">
+                <h1>Green Future Movement</h1>
+            <img src="DW.jpg" alt="Dawit Alemu" class="image">
+            <h2>Dawit Alemu</h2>
+            <p>
+              An environmental activist and renewable energy engineer 
+               with nationwide solar project experience. <br> <br>
+               If Elected:
+               <ul>
+                <li>Shift 50% of electricity to renewable energy within <br> 10 years.</li>
+                <li>Enforce strict pollution controls for industries.</li>
+                <li>Create green jobs through eco-friendly industries.</li>
+               </ul> <br><br>
+               <strong>Slogan: “Powering Tomorrow, Protecting Today.”</strong>
+            </p><br>
+            <button type="submit" name="id" value="2" class="voteBtn">Vote</button>
+            </form>
+        
+            <form class="can3" class="can">
+                  <h1>People’s Freedom Alliance</h1>
+            <img src="sl.jpg" alt="Selam Tadesse" class="image">
+            <h2>Selam Tadesse</h2>
+            <p>
+                 A human rights lawyer passionate about transparency,
+                  justice reform, and citizen participation. <br> <br>
+                  If Elected:
+                  <ul>
+                    <li>Strengthen press freedom and government transparency.</li>
+                    <li>Reform courts to ensure fair, timely trials.</li>
+                    <li>Establish public forums for policymaking input.</li>
+                  </ul> <br><br>
+                  <strong>Slogan: “Your Voice, Your Government.”</strong>
+            </p><br><br>
+            <button  type="submit" name="id" value="3" class="voteBtn">Vote</button>
+            </form>
+            <form class="can4" class="can">
+                <h1>Innovation & Technology Party</h1>
+            <img src="kb.jpg" alt="Kebede Meles" class="image">
+            <h2>Kebede Meles</h2>
+            <p>
+             A tech entrepreneur who supports digital skills and technology 
+             driven economic growth. <br> <br>
+             If Elected:
+             <ul>
+                <li>Provide universal internet access, including rural areas.</li>
+                <li>Introduce coding and digital literacy in schools.</li>
+                <li>Support tech innovations in healthcare, education, and transport.</li>
+             </ul> <br><br>
+             <strong>Slogan: “Innovation for All, Progress for Everyone.”</strong>
+            </p><br><br>
+            <button type="submit" name="id" value="4" class="voteBtn" >Vote</button>
+            </form>
+        <br><br>
+    
+            <form id= "feedbacks" class="feedback">
+                <label for="feedback">Feedback</label><br>
+            <textarea name="feedback" id="feedback" cols="50" rows="13"></textarea><br>
+            <input type="submit" id="submit" >
+            </form>
+
+        <section class="copyright">
+  <footer>
+    <ul>
+      <li>&copy; 2025 EthioVote</li>
+      <li>
+        <i class="fas fa-landmark"></i>
+        2025 National Election Board of Ethiopia
+      </li>
+      <li>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:Voterinfo@ehtiovote.et">Voterinfo@ehtiovote.et</a>
+      </li>
+      <li>
+        <i class="fas fa-phone"></i>
+        <a href="tel:6890">6890</a>
+      </li>
+    </ul>
+  </footer>
+</section>
+
+    </div>
+    <!-- logout -->
+    <script>
+document.getElementById('logoutLink').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  fetch('http://localhost:8000/logout.php', {
+    method: 'POST',
+    credentials: 'include'
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert(data.message);
+    if (data.success && data.redirect) {
+      window.location.href = data.redirect; 
+    }
+  })
+  .catch(err => {
+    alert('Logout failed: ' + err.message);
+    console.error('Fetch error:', err);
+  });
+});
+</script>
+<!-- voting -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("form.can1, form.can2, form.can3, form.can4").forEach(form => {
+        form.addEventListener("submit", function(e) {
+            e.preventDefault(); 
+            const button = e.submitter; 
+            if (!button) {
+                alert("Vote button not detected. Please try again.");
+                return;
+            }
+
+            const candidateId = button.value;
+            if (!candidateId) {
+                alert("Invalid candidate.");
+                return;
+            }
+
+            console.log("Voting for candidate ID:", candidateId);
+
+            const formData = new FormData();
+            formData.append("id", candidateId);
+
+            fetch("myvote.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text()) 
+            .then(jsCode => {
+                console.log("Server returned JS:", jsCode);
+                try {
+                    new Function(jsCode)();
+                } catch (err) {
+                    console.error("Error executing server JS:", err);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+            })
+            .catch(err => {
+                console.error("AJAX fetch error:", err);
+                alert("Error connecting to server. Please try again.");
+            });
+        });
+    });
+});
+</script>
+
+
+
+<!-- feedback -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("feedbacks");
+    const input = document.getElementById("feedback");
+
+    if (!form || !input) {
+        console.warn("Form or input element not found.");
+        return;
+    }
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); 
+
+        const feedback = input.value;
+
+        fetch("feedback.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "feedback=" + encodeURIComponent(feedback)
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            alert(data.message);
+
+            if (data.status === "success") {
+                input.value = "";
+            }
+        })
+        .catch(error => {
+            alert("AJAX error: " + error);
+        });
+    });
+});
+</script>
+</body>
+</html>
+<script src="dashboard.js"></script>

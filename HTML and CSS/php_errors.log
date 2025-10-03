@@ -1,0 +1,9 @@
+[26-Sep-2025 11:10:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'ethiovote.voters' doesn't exist in C:\Users\25192\hilcoe\year2\term 3\web design and dev1\Lab Project\HTML and CSS\dashboard.php:52
+Stack trace:
+#0 C:\Users\25192\hilcoe\year2\term 3\web design and dev1\Lab Project\HTML and CSS\dashboard.php(52): mysqli->prepare('SELECT voter_id...')
+#1 {main}
+  thrown in C:\Users\25192\hilcoe\year2\term 3\web design and dev1\Lab Project\HTML and CSS\dashboard.php on line 52
+[26-Sep-2025 11:12:35 UTC] Select query failed: Table 'ethiovote.voters' doesn't exist
+[26-Sep-2025 11:17:15 UTC] Select query failed: Table 'ethiovote.voters' doesn't exist
+[26-Sep-2025 11:18:30 UTC] Select query failed: Table 'ethiovote.voters' doesn't exist
+[26-Sep-2025 11:21:20 UTC] Select query failed: Table 'ethiovote.voters' doesn't exist

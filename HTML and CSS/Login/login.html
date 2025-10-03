@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="googlebot" content="translate" />
+    <link rel="icon" href="/Image and video/Checked User Male.ico " type="image/x-icon">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <main class="container">
+    
+   
+    <section class="image">
+      <img src="Ethiopia (Addis Ababa) (2).jpg" alt="Ethiopian flag">
+    </section>
+
+    
+    <section class="forms">
+      <form id="loginForm">
+        <fieldset>
+          <legend>Login</legend>
+
+          <div class="div1">
+            <label for="voter_id">Voter ID</label>
+            <input type="text" id="voter_id" name="voter_id" class="voter_id">
+          </div>
+
+          <div class="div2">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="password">
+          </div>
+
+          <div class="div3">
+            <a href="http://localhost:8000/Forget_password/forget_password.html" class="link" target="_blank">Forget password?</a>
+          </div>
+
+          <div class="div4">
+            <input type="submit" class="btn" value="Login">
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+ <script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const voterId = document.getElementById('voter_id').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  if (!voterId || !password) {
+    alert('Please enter both Voter ID and Password');
+    console.log('Validation failed: Empty voterId or password');
+    return;
+  }
+  if (voterId.length > 255 || password.length > 255) {
+    alert('Voter ID and Password must not exceed 255 characters');
+    console.log('Validation failed: Input too long', { voterIdLength: voterId.length, passwordLength: password.length });
+    return;
+  }
+
+  console.log('Submitting login request:', { voter_id: voterId, password: '****' });
+
+  fetch('login.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `voter_id=${encodeURIComponent(voterId)}&password=${encodeURIComponent(password)}`,
+    credentials: 'include'
+  })
+    .then(response => {
+      console.log('Response status:', response.status, response.statusText);
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
+      return response.text().then(text => {
+        console.log('Raw response:', text);
+        try {
+          const data = JSON.parse(text);
+          console.log('Parsed response:', data);
+          return data;
+        } catch (e) {
+          throw new Error(`Invalid server response: Not valid JSON - Content: "${text}"`);
+        }
+      });
+    })
+    .then(data => {
+      if (typeof data.success === 'undefined' || typeof data.message === 'undefined') {
+        alert('Invalid server response: Missing success or message fields');
+        console.log('Invalid response structure:', data);
+        return;
+      }
+
+      if (!data.success) {
+        alert(data.message || 'Login failed: Invalid credentials');
+        console.log('Login failed with message:', data.message);
+        return;
+      }
+
+      alert(data.message || 'Login successful!');
+      console.log('Login successful, redirecting to:', data.redirect);
+
+      if (data.redirect) {
+        window.location.href = data.redirect;
+      } else {
+        alert('No redirect URL provided by server.');
+      }
+    })
+    .catch(error => {
+      let errorMessage = 'Login failed: ';
+      if (error.message.includes('Failed to fetch')) {
+        errorMessage += 'Unable to connect to the server. Ensure the PHP server is running (php -S localhost:8000) and check login.php.';
+      } else {
+        errorMessage += error.message;
+      }
+      alert(errorMessage);
+      console.error('Fetch error:', error);
+    });
+});
+</script>
+
+</body>
+</html>
+
