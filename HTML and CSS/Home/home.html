@@ -168,10 +168,10 @@ function checkVotingTime() {
   const now = new Date();
 
   const startTime = new Date();
-  startTime.setHours(13, 0, 0, 0);  
+  startTime.setHours(14, 0, 0, 0);  
 
   const endTime = new Date();
-  endTime.setHours(13, 45, 0, 0);  
+  endTime.setHours(14, 15, 0, 0);  
 
   if (now >= startTime && now <= endTime) {
     btn.disabled = false;

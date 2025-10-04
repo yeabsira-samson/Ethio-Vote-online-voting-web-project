@@ -1,9 +1,9 @@
 function checkVotingTime() {
       const now = new Date();
       const startTime = new Date();
-      startTime.setHours(9, 25, 0, 0);  
+      startTime.setHours(14, 25, 0, 0);  
       const endTime = new Date();
-      endTime.setHours(11,0, 0, 0);   
+      endTime.setHours(15,0, 0, 0);   
 
       const voteButtons = document.querySelectorAll(".voteBtn");
 
