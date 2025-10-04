@@ -45,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    if (!preg_match('/^[A-Za-z0-9]+$/', $fin)) {
-        $response['message'] = 'FIN must contain only letters and numbers.';
+    if (!preg_match('/^[0-9]+$/', $fin)) {
+        $response['message'] = 'FIN must contain only numbers.';
         echo json_encode($response);
         ob_end_flush();
         exit;
