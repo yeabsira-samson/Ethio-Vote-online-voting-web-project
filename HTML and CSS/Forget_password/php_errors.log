@@ -147,3 +147,22 @@
 [04-Oct-2025 11:27:24 UTC] Email sent successfully
 [04-Oct-2025 11:27:24 UTC] Final response: {"status":"success","message":"OTP sent successfully! Check your email."}
 [04-Oct-2025 11:27:24 UTC] === OTP EMAIL SENDING COMPLETED ===
+[04-Oct-2025 17:41:20 UTC] === OTP EMAIL SENDING STARTED ===
+[04-Oct-2025 17:41:20 UTC] Session email: heven3518@gmail.com
+[04-Oct-2025 17:41:20 UTC] Database connection failed: PDO connection not established
+[04-Oct-2025 17:41:20 UTC] Attempting direct database connection...
+[04-Oct-2025 17:41:20 UTC] Direct database connection successful
+[04-Oct-2025 17:41:20 UTC] Stored procedure result: Array
+(
+    [otp] => 4404
+    [result] => 1
+)
+
+[04-Oct-2025 17:41:20 UTC] OTP generated: 4404
+[04-Oct-2025 17:41:20 UTC] Attempting to send email with Elastic Email v4 to: heven3518@gmail.com
+[04-Oct-2025 17:41:21 UTC] Elastic Email v4 - HTTP Code: 200
+[04-Oct-2025 17:41:21 UTC] Elastic Email v4 - Response: {"TransactionID":"661b382d-d7f0-0216-002d-8d151fa0e538","MessageID":"dXyn3aUFs20sXBJ5S2KLjQ2"}
+[04-Oct-2025 17:41:21 UTC] Elastic Email v4 success - Message ID: dXyn3aUFs20sXBJ5S2KLjQ2
+[04-Oct-2025 17:41:21 UTC] Email sent successfully
+[04-Oct-2025 17:41:21 UTC] Final response: {"status":"success","message":"OTP sent successfully! Check your email."}
+[04-Oct-2025 17:41:21 UTC] === OTP EMAIL SENDING COMPLETED ===

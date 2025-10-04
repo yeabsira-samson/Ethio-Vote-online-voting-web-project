@@ -1,8 +1,6 @@
 const inputs = document.querySelectorAll('.otp-input');
 
 inputs.forEach((input, index) => {
-
-  
   input.addEventListener('input', function() {
     if (this.value.trim() === "") {
       this.style.border = "2px solid red";

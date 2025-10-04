@@ -33,7 +33,5 @@ if (isset($_SESSION['voter_id'])) {
     $response['success'] = false;
     $response['message'] = 'You are already logged out';
 }
-
-header('Content-Type: application/json');
 echo json_encode($response);
 exit;
