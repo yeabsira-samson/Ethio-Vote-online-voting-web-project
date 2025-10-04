@@ -168,10 +168,10 @@ function checkVotingTime() {
   const now = new Date();
 
   const startTime = new Date();
-  startTime.setHours(9, 22, 0, 0);  
+  startTime.setHours(13, 0, 0, 0);  
 
   const endTime = new Date();
-  endTime.setHours(9, 45, 0, 0);  
+  endTime.setHours(13, 45, 0, 0);  
 
   if (now >= startTime && now <= endTime) {
     btn.disabled = false;
@@ -182,7 +182,7 @@ function checkVotingTime() {
         document.body.appendChild(msg); 
     }
     msg.textContent = "Voting is still continuing, please wait...";
-    msg.append= now;
+    msg.textContent +=now
   } else if (now > endTime) {
     btn.disabled = false; 
     if (!resultsLoaded) {
