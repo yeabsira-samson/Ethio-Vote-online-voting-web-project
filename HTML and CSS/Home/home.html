@@ -182,7 +182,7 @@ function checkVotingTime() {
         document.body.appendChild(msg); 
     }
     msg.textContent = "Voting is still continuing, please wait...";
-    msg.textContent +=now
+    msg.textContent +=endTime
   } else if (now > endTime) {
     btn.disabled = false; 
     if (!resultsLoaded) {
