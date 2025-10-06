@@ -166,3 +166,41 @@
 [04-Oct-2025 17:41:21 UTC] Email sent successfully
 [04-Oct-2025 17:41:21 UTC] Final response: {"status":"success","message":"OTP sent successfully! Check your email."}
 [04-Oct-2025 17:41:21 UTC] === OTP EMAIL SENDING COMPLETED ===
+[06-Oct-2025 02:58:49 UTC] === OTP EMAIL SENDING STARTED ===
+[06-Oct-2025 02:58:49 UTC] Session email: heven3518@gmail.com
+[06-Oct-2025 02:58:49 UTC] Database connection failed: PDO connection not established
+[06-Oct-2025 02:58:49 UTC] Attempting direct database connection...
+[06-Oct-2025 02:58:49 UTC] Direct database connection successful
+[06-Oct-2025 02:58:49 UTC] Stored procedure result: Array
+(
+    [otp] => 6258
+    [result] => 1
+)
+
+[06-Oct-2025 02:58:49 UTC] OTP generated: 6258
+[06-Oct-2025 02:58:49 UTC] Attempting to send email with Elastic Email v4 to: heven3518@gmail.com
+[06-Oct-2025 02:58:50 UTC] Elastic Email v4 - HTTP Code: 200
+[06-Oct-2025 02:58:50 UTC] Elastic Email v4 - Response: {"TransactionID":"681b380e-06ba-02e4-000e-37363c8d8c3f","MessageID":"gDsnrOXic_y5pBc5l45Fcg2"}
+[06-Oct-2025 02:58:50 UTC] Elastic Email v4 success - Message ID: gDsnrOXic_y5pBc5l45Fcg2
+[06-Oct-2025 02:58:50 UTC] Email sent successfully
+[06-Oct-2025 02:58:50 UTC] Final response: {"status":"success","message":"OTP sent successfully! Check your email."}
+[06-Oct-2025 02:58:50 UTC] === OTP EMAIL SENDING COMPLETED ===
+[06-Oct-2025 03:01:21 UTC] === OTP EMAIL SENDING STARTED ===
+[06-Oct-2025 03:01:21 UTC] Session email: heven3518@gmail.com
+[06-Oct-2025 03:01:21 UTC] Database connection failed: PDO connection not established
+[06-Oct-2025 03:01:21 UTC] Attempting direct database connection...
+[06-Oct-2025 03:01:21 UTC] Direct database connection successful
+[06-Oct-2025 03:01:21 UTC] Stored procedure result: Array
+(
+    [otp] => 2655
+    [result] => 1
+)
+
+[06-Oct-2025 03:01:21 UTC] OTP generated: 2655
+[06-Oct-2025 03:01:21 UTC] Attempting to send email with Elastic Email v4 to: heven3518@gmail.com
+[06-Oct-2025 03:01:22 UTC] Elastic Email v4 - HTTP Code: 200
+[06-Oct-2025 03:01:22 UTC] Elastic Email v4 - Response: {"TransactionID":"681b3856-9bba-4262-0056-d26e64d5d4ad","MessageID":"x1eyHzIjkisoiadIO1lOzA2"}
+[06-Oct-2025 03:01:22 UTC] Elastic Email v4 success - Message ID: x1eyHzIjkisoiadIO1lOzA2
+[06-Oct-2025 03:01:22 UTC] Email sent successfully
+[06-Oct-2025 03:01:22 UTC] Final response: {"status":"success","message":"OTP sent successfully! Check your email."}
+[06-Oct-2025 03:01:22 UTC] === OTP EMAIL SENDING COMPLETED ===

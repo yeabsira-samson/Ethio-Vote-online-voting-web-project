@@ -11,7 +11,6 @@ if (empty($password) || empty($email)) {
     exit;
 }
 
-// ADDED: Password validation - must contain at least one letter and one number
 if (!preg_match('/[A-Za-z]/', $password) || !preg_match('/[0-9]/', $password)) {
     echo json_encode(["status" => "error", "message" => "Password must contain both letters and numbers"]);
     exit;
