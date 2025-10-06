@@ -5,7 +5,7 @@ include '../database.php';
 header("Content-Type: application/javascript"); 
 
 if (!isset($_SESSION['voter_id'])) {
-    echo "alert('You must login first.'); window.location.href='login.html';";
+    echo "alert('You must login first.');";
     exit();
 }
 
